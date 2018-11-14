@@ -12,12 +12,15 @@ class App extends Component {
       amm:'',
       desc:'',
       type:'Income',
-       data:[]
+       data:[],
+       ballance:0,
        }
     this.handleChange = this.handleChange.bind(this)
     this.handleCreateNote = this.handleCreateNote.bind(this)
   }
   handleCreateNote = () => {
+    var prev = this.state.ballance;
+     var amm = this.state.amm;
     let data = [...this.state.data];   //creating the copy
 
     //adding new data
@@ -27,14 +30,25 @@ class App extends Component {
       desc : this.state.desc,
       amm : this.state.amm,
     });
+
+    if(this.state.type==="Income"){
+      this.setState({
+        ballance:prev- (-amm)
+      })
+    }
+    if(this.state.type==="Expense"){
+      this.setState({
+        ballance:prev-amm
+      })
+    }
     //updating the state value
     this.setState({ data });
-    console.log(this.state.data)
   };
+
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  
+ 
   render() {
     return (
       <div className="app">
@@ -64,11 +78,11 @@ class App extends Component {
           <tbody>
             <tr>
            <td>
-            {
+            { 
             this.state.data.map((data) =>
             {
             if(data.type=='Income'){
-              return <li>
+                 return <li>
                 {data.desc}-
                 {data.amm} $-
                 {data.date}
@@ -85,6 +99,7 @@ class App extends Component {
             this.state.data.map((data) =>
             {
             if(data.type=='Expense'){
+             
               return               <li>
                  {data.desc}-
                 {data.amm} $-
@@ -102,7 +117,16 @@ class App extends Component {
           
             
           </tbody>
+          
         </table>
+        <div className="forbal">
+        <hr></hr>
+          <span>
+            Ballance :
+            {this.state.ballance} $
+          </span>
+        </div>
+       
       </div>
     )
   }
