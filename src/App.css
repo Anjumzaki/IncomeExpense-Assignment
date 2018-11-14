@@ -5,7 +5,7 @@ h1, h2, h3, h4, h5, h6 {
 span.bungee { font-family: 'Bungee', cursive; }
 
 .app {
-  max-width: 720px;
+
   margin: 0 auto;
   text-align: center;
 }
@@ -16,6 +16,13 @@ span.bungee { font-family: 'Bungee', cursive; }
 a.link {
   text-decoration: none;
   color: #ff1769;
+}
+.inputst{
+  font-size-adjust: 18;
+   font-Family: 'Bungee', cursive;
+   margin: 10px;
+   text-align: center;
+   border-radius: 10px;
 }
 
 a.link:hover {
