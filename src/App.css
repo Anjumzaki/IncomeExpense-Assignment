@@ -1,5 +1,6 @@
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bungee', cursive;
+
+body{
+   font-family: 'Bungee', cursive;
 }
 
 span.bungee { font-family: 'Bungee', cursive; }
@@ -24,7 +25,14 @@ a.link {
    text-align: center;
    border-radius: 10px;
 }
-
+.frtable{
+width: 70%;
+border: 2px;
+margin: auto;}
+.frtable thead{
+  font-size: 20px;
+  color: blue;
+}
 a.link:hover {
   text-decoration: none;
   border-bottom: 2px solid #000;
